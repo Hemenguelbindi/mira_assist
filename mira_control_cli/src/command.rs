@@ -3,13 +3,14 @@ use clap::{Parser, Subcommand};
 
 #[derive(Parser)]
 #[command(author="Hemenguelbindi", version="0.0.1",)]
-pub struct StartMetric{
+pub struct StartMetricCli{
     #[command(subcommand)]
-    pub commands: Commansd,
+    pub commands: Command,
 }
 
 
-pub enum Commansd{
+#[derive(Subcommand)]
+pub enum Command{
     Start,
     Pause,
     Stop,

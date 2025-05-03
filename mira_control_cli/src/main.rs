@@ -1,3 +1,13 @@
+mod command;
+mod manager;
+
+use clap::Parser;
+use command::StartMetricCli;
+use manager::MiraMenagerCLI;
+
 fn main() {
-    println!("Hello, world!");
+    let cli =  StartMetricCli::parse();
+    let mut manager = MiraMenagerCLI::new();
+
+    manager.execute(cli.commands);
 }
